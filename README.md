@@ -75,13 +75,9 @@ AWS VPC Peering implementation
 Route table & security group configuration
 Private vs public traffic behavior
 
----
-
 🔗 Repository
 
 👉 https://github.com/mishranidhi2305/VpcPeeringWithTerraform
-
----
 
 🙌 Author
 

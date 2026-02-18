@@ -1,42 +1,42 @@
 # 🌐 Terraform VPC Peering (Multi-Region AWS)
 
-<p align="left">
-  <img src="https://img.shields.io/badge/Terraform-IaC-623CE4"/>
-  <img src="https://img.shields.io/badge/AWS-Cloud-FF9900"/>
-  <img src="https://img.shields.io/badge/Architecture-VPC%20Peering-blue"/>
-  <img src="https://img.shields.io/badge/Status-Active-green"/>
-  <img src="https://img.shields.io/badge/License-MIT-lightgrey"/>
-</p>
+![Terraform](https://img.shields.io/badge/Terraform-IaC-623CE4)
+![AWS](https://img.shields.io/badge/AWS-Cloud-FF9900)
+![VPC](https://img.shields.io/badge/Networking-VPC%20Peering-blue)
+![Status](https://img.shields.io/badge/Status-Active-green)
+![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
-This repository demonstrates how to create **VPC Peering between two AWS VPCs in different regions using Terraform**, along with EC2 instances to validate **private connectivity**, following Infrastructure as Code (IaC) best practices.
+This repository demonstrates how to create **VPC Peering between two AWS VPCs in different regions using Terraform**, along with EC2 instances to validate **private connectivity**, following **Infrastructure as Code (IaC)** best practices.
 
-The configuration uses multiple AWS provider aliases to deploy infrastructure in **ap-south-1** & **us-east-1**.
+The configuration uses **multiple AWS provider aliases** to deploy infrastructure in **ap-south-1** & **us-east-1**.
 
 ---
 
 ## 🏗 Architecture Overview
 
+```bash
 +---------------------------+        VPC Peering        +---------------------------+
 |        Primary VPC        | <---------------------> |       Secondary VPC       |
-|       ap-south-1          |                         |        us-east-1           |
+|        ap-south-1         |                         |        us-east-1           |
 |                           |                         |                           |
 |   EC2 Instance            |                         |   EC2 Instance            |
 |   Public / Private Subnet |                         |   Public / Private Subnet |
 +---------------------------+                         +---------------------------+
            |                                                     |
-           |------------------ Internet Gateway ---------------- |
+           |------------------ Internet Gateway ----------------|
+
+Architecture Summary:
 
 Primary VPC → ap-south-1
 Secondary VPC → us-east-1
 One public subnet in each VPC
 Internet Gateway attached to both VPCs
 VPC Peering connection between both VPCs
-Route tables updated to allow inter-VPC communication
+Route tables allow inter-VPC communication
 EC2 instance launched in each VPC
 Security Groups allow SSH + ICMP + inter-VPC traffic
 
 📁 Project Structure
-
 vpc-peering-terraform/
 │
 ├── provider.tf          # Multi-region AWS providers
@@ -55,28 +55,18 @@ vpc-peering-terraform/
 ├── outputs.tf           # Output values
 └── README.md            # Project documentation
 
-
 ⚙️ Prerequisites
 
 Terraform ≥ 1.3
-AWS account
+AWS Account
 AWS CLI configured
 Existing EC2 key pairs in both regions
-aws configure
 
 🚀 How to Deploy
-1️⃣ Initialize Terraform
 terraform init
-
-2️⃣ Validate configuration
 terraform validate
-
-3️⃣ Review the plan
 terraform plan
-
-4️⃣ Apply infrastructure
 terraform apply --auto-approve
-
 
 📚 Learning Outcomes
 
@@ -86,10 +76,13 @@ Route table & security group configuration
 Private vs public traffic behavior
 
 🔗 Repository
-👉 GitHub: https://github.com/mishranidhi2305/VpcPeeringWithTerraform
+
+👉 https://github.com/mishranidhi2305/VpcPeeringWithTerraform
 
 🙌 Author
-Nidhi Mishra Cloud & DevOps Engineer
+
+Nidhi Mishra
+Cloud & DevOps Engineer
 
 This project is actively maintained and continuously improved to support the DevOps community in learning, building, and scaling cloud infrastructure.
 
